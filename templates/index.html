@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Freshness Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            padding: 40px 50px;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            border-color: #4CAF50;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #image-preview {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h3 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .result p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="static/logo.png" alt="Logo" class="logo"> <!-- Add your logo here -->
+        <h1>Fruit Freshness Prediction</h1>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label for="file">Choose an image to upload:</label>
+            <input type="file" name="file" id="file" accept="image/*" onchange="previewImage(event)" required>
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        <img id="image-preview" src="#" alt="Image Preview">
+
+        {% if results %}
+        <div class="result">
+            <h3>Prediction Results:</h3>
+            <ul>
+                {% for item in results %}
+                    <li>
+                        <strong>{{ item.fruit_type }}</strong>: {{ item.classification }}
+                        ({{ (item.classification_confidence * 100) | round(2) }}%)
+                    </li>
+                {% endfor %}
+            </ul>
+    
+            {% if image_file %}
+                <img src="{{ url_for('send_file_route', filename=image_file) }} "
+                     alt="Predicted Image"
+                     style="margin-top: 20px; border-radius: 8px; max-width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('image-preview');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+
+</body>
+</html>
