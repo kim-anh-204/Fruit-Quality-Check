@@ -68,9 +68,8 @@ Một số quả sau khi tải ảnh lên và xử lý:
 
 | Lỗi | Nguyên nhân & Cách khắc phục |
 |-----|------------------------------|
-| Nhãn phân loại sai (ví dụ: 🍌 chuối bị nhận thành cam) | Do ảnh bị chồng chéo trái cây, ánh sáng kém hoặc vùng cắt không rõ ràng. → Nên chụp ảnh sáng rõ, mỗi loại trái cây tách biệt càng tốt. |
-| Nhãn `fresh_apple` nhưng ảnh là táo hư thật | Mô hình MobileNetV2 chưa đủ dữ liệu huấn luyện → Cần bổ sung dữ liệu đa dạng hơn cho từng loại trái cây. |
-| Ảnh có quá nhiều trái cây → Nhầm lẫn nhãn | Cần cải thiện mô hình YOLO hoặc áp dụng lọc hậu xử lý tốt hơn (IoU, confidence). |
+| 🍊 Cam tươi bị nhận thành cam hư | Mô hình MobileNetV2 nhầm lẫn vì điều kiện ánh sáng hoặc chưa đủ dữ liệu huấn luyện về cam hư/tươi. → Nên huấn luyện mô hình kỹ hơn hoặc chuẩn hóa ảnh tốt hơn. |
+| 🍌 Chuối bị nhận là cam | YOLO nhận diện sai bounding box → phần ảnh đưa vào phân loại không phải trái chuối. → Cần điều chỉnh threshold, padding, hoặc dùng mô hình YOLO chính xác hơn. |
 
 ---
 
@@ -78,10 +77,8 @@ Một số quả sau khi tải ảnh lên và xử lý:
 
 | Trường hợp | Ảnh minh họa |
 |------------|--------------|
-| Chuối bị nhận là cam | ![](static/example_wrong1.png) |
-| Tất cả đều nhận đúng ngoại trừ chuối | ![](static/example_wrong2.png) |
-
-> 💡 Bạn nên đổi tên 2 file ảnh vừa upload thành `example_wrong1.png` và `example_wrong2.png`, sau đó đặt chúng trong thư mục `static/` để hiển thị đúng trên GitHub.
+|🍊 Cam tươi bị nhận thành cam hư | ![](static/example_wrong1.png) |
+|🍌 Chuối bị nhận là cam | ![](static/example_wrong2.png) |
 
 ---
 
