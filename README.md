@@ -47,7 +47,7 @@ python api.py
 
 Ảnh dưới đây minh họa giao diện web của hệ thống khi người dùng truy cập:
 
-![Giao diện chính](giaodienweb.png)
+![Giao diện chính](static/giaodienweb.png)
 
 ---
 
@@ -58,8 +58,8 @@ Kết quả sau khi tải ảnh lên và xử lý:
 | Kết quả | Ảnh minh họa |
 |--------|---------------|
 | Kết quả 1 | ![res1](static/res1) |
-| Kết quả 2 | ![res2](res2) |
-| Kết quả 3 | ![res3](res3) |
+| Kết quả 2 | ![res2]static/(res2) |
+| Kết quả 3 | ![res3](static/res3) |
 
 
 
