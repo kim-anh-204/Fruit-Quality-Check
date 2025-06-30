@@ -58,7 +58,7 @@ Kết quả sau khi tải ảnh lên và xử lý:
 | Kết quả | Ảnh minh họa |
 |--------|---------------|
 | Kết quả 1 | ![res1](static/res1) |
-| Kết quả 2 | ![res2](static/(res2) |
+| Kết quả 2 | ![res2](static/res2) |
 | Kết quả 3 | ![res3](static/res3) |
 
 
