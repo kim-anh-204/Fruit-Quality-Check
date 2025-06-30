@@ -43,6 +43,23 @@ python api.py
 
 # Truy cập ứng dụng tại: http://127.0.0.1:5000
 
+## 🖼️ Giao diện Ứng dụng
+
+Ảnh dưới đây minh họa giao diện web của hệ thống khi người dùng truy cập:
+
+![Giao diện chính](giaodienweb.png)
+
+---
+
+## 🎯 Kết quả Dự đoán
+
+Kết quả sau khi tải ảnh lên và xử lý:
+
+| Kết quả | Ảnh minh họa |
+|--------|---------------|
+| Kết quả 1 | ![res1](res1) |
+| Kết quả 2 | ![res2](res2) |
+| Kết quả 3 | ![res3](res3) |
 
 
 
