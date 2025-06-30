@@ -28,7 +28,7 @@
 
 ## 📦 Cài đặt và chạy dự án
 # 🔢 1. Clone dự án
-git clone https://github.com/ten-cua-ban/ten-du-an.git
+git clone github.com/kim-anh-204/Fruit-Quality-Check
 cd ten-du-an
 
 # 🔢 2. Tạo môi trường ảo (tuỳ chọn)
@@ -58,7 +58,7 @@ Kết quả sau khi tải ảnh lên và xử lý:
 | Kết quả | Ảnh minh họa |
 |--------|---------------|
 | Kết quả 1 | ![res1](static/res1) |
-| Kết quả 2 | ![res2]static/(res2) |
+| Kết quả 2 | ![res2](static/(res2) |
 | Kết quả 3 | ![res3](static/res3) |
 
 
