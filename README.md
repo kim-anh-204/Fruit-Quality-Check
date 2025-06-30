@@ -28,7 +28,7 @@
 
 ## 📦 Cài đặt và chạy dự án
 # 🔢 1. Clone dự án
-git clone https://github.com/kim-anh-204/Fruit-Quality-Check.
+git clone https://github.com/kim-anh-204/Fruit-Quality-Check.git
 
 # 🔢 2. Tạo môi trường ảo (tuỳ chọn)
 python -m venv venv
