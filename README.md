@@ -28,7 +28,7 @@
 
 ## 📦 Cài đặt và chạy dự án
 # 🔢 1. Clone dự án
-git clone https://github.com/kim-anh-204/Fruit-Quality-Check.gi
+git clone https://github.com/kim-anh-204/Fruit-Quality-Check.
 
 # 🔢 2. Tạo môi trường ảo (tuỳ chọn)
 python -m venv venv
@@ -52,13 +52,44 @@ python api.py
 
 ## 🎯 Kết quả Dự đoán
 
-Kết quả sau khi tải ảnh lên và xử lý:
+Một số quả sau khi tải ảnh lên và xử lý:
 
 | Kết quả | Ảnh minh họa |
 |--------|---------------|
 | Kết quả 1 | ![res1](static/res1) |
 | Kết quả 2 | ![res2](static/res2) |
 | Kết quả 3 | ![res3](static/res3) |
+| Kết quả 4 | ![res4](static/res4) |
+| Kết quả 5 | ![res5](static/res5) |
+
+---
+
+## ⚠️ Một số lỗi thường gặp
+
+| Lỗi | Nguyên nhân & Cách khắc phục |
+|-----|------------------------------|
+| Nhãn phân loại sai (ví dụ: 🍌 chuối bị nhận thành cam) | Do ảnh bị chồng chéo trái cây, ánh sáng kém hoặc vùng cắt không rõ ràng. → Nên chụp ảnh sáng rõ, mỗi loại trái cây tách biệt càng tốt. |
+| Nhãn `fresh_apple` nhưng ảnh là táo hư thật | Mô hình MobileNetV2 chưa đủ dữ liệu huấn luyện → Cần bổ sung dữ liệu đa dạng hơn cho từng loại trái cây. |
+| Ảnh có quá nhiều trái cây → Nhầm lẫn nhãn | Cần cải thiện mô hình YOLO hoặc áp dụng lọc hậu xử lý tốt hơn (IoU, confidence). |
+
+---
+
+## 📌 Ví dụ lỗi sai nhãn
+
+| Trường hợp | Ảnh minh họa |
+|------------|--------------|
+| Chuối bị nhận là cam | ![](static/example_wrong1.png) |
+| Tất cả đều nhận đúng ngoại trừ chuối | ![](static/example_wrong2.png) |
+
+> 💡 Bạn nên đổi tên 2 file ảnh vừa upload thành `example_wrong1.png` và `example_wrong2.png`, sau đó đặt chúng trong thư mục `static/` để hiển thị đúng trên GitHub.
+
+---
+
+## 💡 Gợi ý cải thiện
+
+- Bổ sung tập dữ liệu huấn luyện nhiều ảnh hơn với điều kiện ánh sáng khác nhau.
+- Áp dụng kỹ thuật **augmentation** (xoay, lật, làm mờ) để tăng độ chính xác.
+- Cho phép người dùng chọn lại nhãn nếu cảm thấy hệ thống đoán sai.
 
 
 
