@@ -26,5 +26,25 @@
 
 ---
 
-## 📂 Cấu trúc thư mục
+## 📦 Cài đặt và chạy dự án
+# 🔢 1. Clone dự án
+git clone https://github.com/ten-cua-ban/ten-du-an.git
+cd ten-du-an
+
+# 🔢 2. Tạo môi trường ảo (tuỳ chọn)
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 🔢 3. Cài đặt thư viện
+pip install -r requirements.txt
+
+# 🔢 4. Chạy ứng dụng
+python api.py
+
+# Truy cập ứng dụng tại: http://127.0.0.1:5000
+
+
+
+
+
 
